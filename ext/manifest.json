@@ -1,0 +1,49 @@
+{
+  "name": "buyoo - best price for products u like",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Shop for products from any online store. Find what you like at the best price online.",
+  "homepage_url": "http://www.buyoo.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": false
+  },
+  "options_page": "src/options_custom/index.html",
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "Find best price online",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
+  "permissions": [
+    "tabs",
+    "contentSettings",
+    "contextMenus",
+    "geolocation",
+    "https://*/*",
+    "http://www.buyoo.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/*"
+      ],
+      "css": [
+        "src/inject/inject.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.google.com/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
